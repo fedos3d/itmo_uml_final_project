@@ -39,8 +39,6 @@ public class CustomerAccount extends Account {
     }
 
 
-
-
     public void setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
@@ -53,8 +51,6 @@ public class CustomerAccount extends Account {
         this.notifier = notifier;
     }
 
-    private String password;
-//    private String username;
     private String mail;
     private ArrayList<Order> orders;
     private PaymentMethod paymentMethod;

@@ -2,7 +2,6 @@ package ticket;
 
 import passenger.Passenger;
 import view.View;
-import view.ViewFlightTickets;
 
 import java.util.ArrayList;
 import java.util.Date;

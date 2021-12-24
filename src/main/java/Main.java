@@ -40,7 +40,6 @@ public class Main {
     }
 
     public static void printCommandSet() {
-        //need to add protection from people trying to do not satified actions
         System.out.println("You can:");
         if (!logged) {
             System.out.println("Login - press 1");
@@ -163,7 +162,6 @@ public class Main {
             return false;
         }
         return true;
-        //check if password is not this simple
     }
     public static boolean checkEmailAddress(String email) {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
@@ -179,7 +177,6 @@ public class Main {
         if (!checkUserNameAndPassword(username, password)) {
             customerRegister();
         } else {
-            // Probably better to make another function;
             System.out.println("Fill in your email:");
             String email = scanner.next();
             if (!checkEmailAddress(email)) {
@@ -205,7 +202,6 @@ public class Main {
         if (!checkUserNameAndPassword(username, password)) {
             customerRegister();
         } else {
-            // Probably better to make another function;
             System.out.println("Fill in your first name:");
             String firstName = scanner.next();
             System.out.println("Fill in your last name: ");
@@ -431,7 +427,7 @@ public class Main {
             default:
                 sclass = TrainServiceClass.Plazcart;
         }
-        fetchTicketsWithParamsTrain(depature, destination, departureDate, arrivalDate, amount_of_passengers, null);
+        fetchTicketsWithParamsTrain(depature, destination, departureDate, arrivalDate, amount_of_passengers, sclass);
     }
 
     public static void fetchTicketsWithParamsFlight(String departure, String destination, Date departureDate,
@@ -528,11 +524,14 @@ public class Main {
                     }
                     System.out.println("Payment Succeded!");
                     if (view.getClass() == ViewBusTickets.class) {
-                        acc.getOrders().add(new Order(ticketIDS++, new BusTicket((ViewBusTickets) view, acc.getPassengers()), new Date(), view.getPrice()));
+                        acc.getOrders().add(new Order(ticketIDS++, new BusTicket((ViewBusTickets) view,
+                                acc.getPassengers()), new Date(), view.getPrice()));
                     } else if (view.getClass() == ViewFlightTickets.class) {
-                        acc.getOrders().add(new Order(ticketIDS++, new FlightTicket((ViewFlightTickets) view, acc.getPassengers()), new Date(), view.getPrice()));
+                        acc.getOrders().add(new Order(ticketIDS++, new FlightTicket((ViewFlightTickets) view,
+                                acc.getPassengers()), new Date(), view.getPrice()));
                     } else if (view.getClass() == ViewTrainTickets.class) {
-                        acc.getOrders().add(new Order(ticketIDS++, new TrainTicket((ViewTrainTickets) view, acc.getPassengers()), new Date(), view.getPrice()));
+                        acc.getOrders().add(new Order(ticketIDS++, new TrainTicket((ViewTrainTickets) view,
+                                acc.getPassengers()), new Date(), view.getPrice()));
 
                     }
                     System.out.println("Would you like to download tickets right now? " +
@@ -553,7 +552,6 @@ public class Main {
             }
 
         } else {
-            //Need to fix this
             System.out.println("You need to login first before proceeding to checkout. Exiting to main menu...");
             printCommandSet();
         }

@@ -1,6 +1,5 @@
 package view;
 
-import ticket.FlightServiceClass;
 import ticket.TrainServiceClass;
 
 import java.util.Date;

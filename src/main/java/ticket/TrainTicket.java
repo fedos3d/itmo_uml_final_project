@@ -1,7 +1,6 @@
 package ticket;
 
 import passenger.Passenger;
-import view.ViewFlightTickets;
 import view.ViewTrainTickets;
 
 import java.util.ArrayList;
